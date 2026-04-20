@@ -1,0 +1,8 @@
+com.rewards.rewards_api
+com.rewards.rewards_api.controller
+com.rewards.rewards_api.dto
+com.rewards.rewards_api.entity
+com.rewards.rewards_api.exception
+com.rewards.rewards_api.integration
+com.rewards.rewards_api.repository
+com.rewards.rewards_api.service
