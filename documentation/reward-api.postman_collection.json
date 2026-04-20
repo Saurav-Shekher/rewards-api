@@ -1,0 +1,87 @@
+{
+  "info": {
+    "_postman_id": "ab102fe3-1282-4b3e-85b3-e8f35d1c0393",
+    "name": "reward-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53550796",
+    "_collection_link": "https://go.postman.co/collection/53550796-ab102fe3-1282-4b3e-85b3-e8f35d1c0393?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "/rewards",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"showId\": 1,\r\n  \"userName\": \"Saurav\",\r\n  \"seats\": [\"A1\",\"A2\"]\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/rewards",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "rewards"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "/rewards",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"showId\": 1,\r\n  \"userName\": \"Saurav\",\r\n  \"seats\": [\"A1\",\"A2\"]\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/rewards",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "rewards"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 20 Apr 2026 16:21:56 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "[\n    {\n        \"customerId\": \"C3\",\n        \"within1month\": 235,\n        \"within1to2months\": 380,\n        \"within2to3months\": 430,\n        \"totalPoints\": 1045\n    },\n    {\n        \"customerId\": \"C4\",\n        \"within1month\": 315,\n        \"within1to2months\": 45,\n        \"within2to3months\": 280,\n        \"totalPoints\": 640\n    },\n    {\n        \"customerId\": \"C1\",\n        \"within1month\": 270,\n        \"within1to2months\": 315,\n        \"within2to3months\": 375,\n        \"totalPoints\": 960\n    },\n    {\n        \"customerId\": \"C2\",\n        \"within1month\": 445,\n        \"within1to2months\": 365,\n        \"within2to3months\": 425,\n        \"totalPoints\": 1235\n    }\n]"
+        }
+      ]
+    }
+  ]
+}
