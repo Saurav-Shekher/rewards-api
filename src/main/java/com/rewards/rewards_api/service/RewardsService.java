@@ -71,13 +71,15 @@ public class RewardsService {
 	 */
 	public List<RewardResponse> getAllRewards() {
 
-		List<Transaction> transactions = repository.findAll();
+		LocalDate now = LocalDate.now();
+        LocalDate threeMonthsAgo = now.minusMonths(3);
+
+        List<Transaction> transactions =
+                repository.findByTransactionDateBetween(threeMonthsAgo, now);
 
 		if (transactions.isEmpty()) {
 			throw new TransactionNotFoundException("No transactions found");
 		}
-
-		LocalDate now = LocalDate.now();
 
 		Map<String, List<Transaction>> grouped = transactions.stream()
 				.collect(Collectors.groupingBy(Transaction::getCustomerId));
