@@ -123,3 +123,38 @@ A packaged fat jar is produced by `mvnw.cmd -DskipTests package` and appears in 
 
 - If there are no transactions in the repository, the API returns a 404 (handled by `TransactionNotFoundException` and `GlobalExceptionHandler`).
 
+## Optimized data retrieval using date‑range queries
+
+To improve performance and scalability, the service layer retrieves only the
+required transaction data instead of loading all records.
+
+- The repository method `findByTransactionDateBetween(startDate, endDate)` is
+  used to fetch **transactions from the last three months only**.
+- This ensures:
+  - Database‑level filtering instead of in‑memory filtering
+  - Reduced memory usage in the application
+  - Faster response times as the dataset grows
+
+## Scope for Future Improvement: Database‑Side Aggregation / Stored Procedures
+
+While the current design performs reward calculation and aggregation in the
+service layer, a potential enhancement for very large datasets would be to move
+part or all of this logic to the database.
+
+For example, a **stored procedure** could be used to:
+
+- Filter transactions by date (e.g., last three months)
+- Compute reward points based on transaction amounts
+- Aggregate results per customer and per month directly in SQL
+
+#### Why this approach can perform better at scale
+
+- Databases are highly optimized for aggregation and grouping operations
+- Reduces the volume of data transferred from the database to the application
+- Minimizes JVM memory usage and garbage collection pressure
+- Improves performance when processing millions of transaction records
+
+The current implementation keeps business logic in Java for simplicity,
+readability, and ease of maintenance. However, database‑side aggregation remains
+a viable and effective option for high‑throughput, production‑grade systems with
+large datasets.
