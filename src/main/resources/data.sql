@@ -6,6 +6,8 @@ CREATE TABLE t_transaction_details (
     transaction_date DATE,
     transaction_amount DOUBLE
 );
+CREATE INDEX idx_txn_date_customer
+ON t_transaction_details (transaction_date, customer_id);
 
 INSERT INTO t_transaction_details VALUES (1,'C1','2026-04-01',120);
 INSERT INTO t_transaction_details VALUES (2,'C1','2026-04-03',75);
